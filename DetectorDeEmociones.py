@@ -23,7 +23,7 @@ faceNet = cv2.dnn.readNet(prototxtPath, weightsPath)
 emotionModel = load_model("modelFEC.h5")
 
 # Inicializar conexión con ESP32
-ser = serial.Serial('COM8', 115200)  # Para Windows
+ser = serial.Serial('COM3', 115200)  # Para Windows
 time.sleep(2)
 
 # Se crea la captura de video
@@ -91,6 +91,7 @@ try:
 
             # Enviar el resultado al ESP32
             ser.write((emotion + '\n').encode('utf-8'))
+            print(f"Enviando: {emotion}")
 
             cv2.rectangle(frame, (Xi, Yi-40), (Xf, Yi), (255, 0, 0), -1)
             cv2.putText(frame, label, (Xi+5, Yi-15), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 255, 0), 2)

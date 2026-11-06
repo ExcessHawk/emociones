@@ -1,0 +1,5 @@
+# modelFEC.h5 is a legacy Keras 2 HDF5 model; TensorFlow 2.16+ ships Keras 3,
+# which may fail to load it. Use Python 3.9-3.11.
+tensorflow>=2.10,<2.16
+opencv-python>=4.5
+numpy<2
